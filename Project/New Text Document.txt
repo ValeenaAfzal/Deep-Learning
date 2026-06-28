@@ -1,0 +1,120 @@
+pip install scikit-video
+pip install cmapy
+python -m pip install tensorboard
+python -m pip install configargparse
+scipy,skimage, matplotlib
+conda install scikit-image
+
+python experiment_scripts/train_img.py --model_type=sine --experiment_name=siren_image
+python experiment_scripts/train_img.py --model_type=relu --experiment_name=relu_image --logging_root=./logs --steps_til_summary=1000
+
+python experiment_scripts/train_img.py --model_type=sine --experiment_name=siren_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=relu --experiment_name=relu_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=tanh --experiment_name=tanh_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=rbf --experiment_name=rbf_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=nerf --experiment_name=nerf_image --logging_root=./logs --steps_til_summary=1000
+
+
+
+python experiment_scripts/train_audio.py --model_type=sine --wav_path=./data/gt_bach.wav --experiment_name=audio_bach_siren --logging_root=./logs
+
+
+
+tensorboard --logdir=./logs
+http://localhost:6006/
+
+
+pip uninstall torch torchvision torchaudio -y
+
+--
+conda create -n siren python=3.10 -y
+conda activate siren
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+
+Run scripts for Images
+python experiment_scripts/train_img.py --model_type=sine --experiment_name=siren_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=relu --experiment_name=relu_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=tanh --experiment_name=tanh_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=rbf --experiment_name=rbf_image --logging_root=./logs --steps_til_summary=1000
+python experiment_scripts/train_img.py --model_type=nerf --experiment_name=nerf_image --logging_root=./logs --steps_til_summary=1000
+Run Scripts for Audio
+ Bach — SIREN : python experiment_scripts/train_audio.py --model_type=sine --wav_path=./data/gt_bach.wav --experiment_name=audio_bach_siren --logging_root=./logs
+Bach — ReLU : python experiment_scripts/train_audio.py --model_type=relu --wav_path=./data/gt_bach.wav --experiment_name=audio_bach_relu --logging_root=./logs
+Counting — SIREN : python experiment_scripts/train_audio.py --model_type=sine --wav_path=./data/gt_counting.wav --experiment_name=audio_counting_siren --logging_root=./logs
+Counting — RELU : python experiment_scripts/train_audio.py --model_type=relu --wav_path=./data/gt_counting.wav --experiment_name=audio_counting_relu --logging_root=./logs
+
+
+python experiment_scripts/train_video.py --model_type=sine --experiment_name=video_siren --logging_root=./logs --num_epochs=5000
+
+python experiment_scripts/train_video.py --model_type=relu --experiment_name=video_relu --logging_root=./logs --num_epochs=10000
+
+---
+https://www.gyan.dev/ffmpeg/builds/
+conda install -c conda-forge ffmpeg -y
+pip install h5py
+pip install tqdm
+conda install -c conda-forge opencv
+
+
+
+---
+python experiment_scripts/train_img_caos.py
+python experiment_scripts/train_img_ffl.py
+python experiment_scripts/train_img_grad_loss.py
+
+
+---
+caos_siren\summaries
+9.3262
+10.1018
+9,500
+32.47 min
+ffl_lambda_0_01\summaries
+29.3316
+29.3704
+9,500
+33.59 min
+ffl_lambda_0_05\summaries
+26.7369
+26.7653
+9,500
+37.17 min
+ffl_lambda_0_1\summaries
+25.7486
+25.7686
+9,500
+35.8 min
+----
+loss
+
+
+caos_siren\summaries
+0.4731
+0.3916
+9,500
+32.47 min
+ffl_lambda_0_01\summaries
+0.0404
+0.0387
+9,500
+33.59 min
+ffl_lambda_0_05\summaries
+0.1804
+0.1745
+9,500
+37.17 min
+ffl_lambda_0_1\summaries
+0.3676
+0.3541
+9,500
+35.8 min
+
+---
+omega
+caos_siren\summaries
+57.1839
+59.6922
+9,500
+32.47 min
+
+
